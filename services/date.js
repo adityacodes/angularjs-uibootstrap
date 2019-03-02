@@ -1,4 +1,4 @@
-app.service('dateFactory', function() {
+app.service('dateService', function() {
     this.date = function($scope) {
         $scope.today = function() {
             $scope.dt = new Date();

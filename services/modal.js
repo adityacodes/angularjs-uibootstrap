@@ -1,6 +1,5 @@
 app.service('modalService', ['$uibModal', function($uibModal) {
 
-
 	this.open = function(size, parentSelector, items){
 		var parentElem = parentSelector ? 
 	      angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;

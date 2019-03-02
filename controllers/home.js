@@ -1,5 +1,5 @@
-app.controller("HomeController", ["$scope", "carouselService", "dateFactory", "$uibModal", "modalService",
-                 function($scope, carouselService, dateFactory, $uibModal, modalService) {
+app.controller("HomeController", ["$scope", "carouselService", "dateService", "modalService",
+                 function($scope, carouselService, dateService, modalService) {
 
     $scope.sliderProperties = {
         interval: 800,
@@ -26,17 +26,18 @@ app.controller("HomeController", ["$scope", "carouselService", "dateFactory", "$
 
     carouselService.carousel($scope);
 
-    dateFactory.date($scope);
+    dateService.date($scope);
 
 
     $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.open = function(size, parentSelector){
 
-        var modalInstance = modalService.open(size, parentSelector, $scope.items);
+        let modalInstance = modalService.open(size, parentSelector, $scope.items);
         
         modalInstance.result.then(function (selectedItem) {
             $scope.selected = selectedItem;
+            console.log(selectedItem);
         }, function () {
             console.log('Modal dismissed at: ' + new Date());
         });
